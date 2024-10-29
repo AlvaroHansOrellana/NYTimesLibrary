@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Book Display</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NY Times Best Sellers</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-      <header>
-        <h1>NY Books API Display</h1>
-      </header>  
+  <!-- Contenedor del spinner de carga -->
+  <div id="loading" class="loading-spinner">Cargando...</div>
 
-      <div id="loader" class="loader">Cargando ...</div>
-      <div id="book-lists" class="book-lists"></div>
+  <!-- Título principal -->
+  <header>
+    <h1>NY Times <span>Best Sellers</span></h1>
+  </header>
 
+  <!-- Contenedor principal -->
+  <main>
+    <!-- Contenedor de listas de libros -->
+    <section id="lists-container" class="lists-container">
+      <h2>Explora las Listas de Libros</h2>
+    </section>
 
-    <footer>NY Books Api Display</footer>
-    <script src="script.js"></script>
+    <!-- Contenedor de libros específicos de una lista -->
+    <section id="books-container" class="books-container">
+      <!-- Los detalles de los libros específicos se cargarán aquí -->
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
