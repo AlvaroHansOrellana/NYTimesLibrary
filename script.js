@@ -1,5 +1,5 @@
 // Configuración de la API
-const API_KEY = 'pLZAI5FfCGCFZRh2UHGYV7joLi6O9M08';
+const API_KEY = 'KwCx0gWhrX55ne0bYo9JC1fNtNgx5KL0';
 const API_BASE_URL = 'https://api.nytimes.com/svc/books/v3';
 
 // Función para mostrar el spinner de carga

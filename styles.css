@@ -3,88 +3,85 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     font-family: 'Arial', sans-serif;
     background-color: #f9f9f9;
     color: #333;
-  }
-  
-  /* Oculta el spinner por defecto */
-#loading {
+}
+
+/* Spinner de carga */
+.loading {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 10;
-  }
-  
-  /* Estilo del spinner */
-  .spinner {
     width: 50px;
     height: 50px;
     border: 5px solid #f3f3f3;
-    border-top: 5px solid #333; /* Color del borde superior */
+    border-top: 5px solid #d62828;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-  }
-  
-  /* Animación de giro */
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
     }
-    to {
-      transform: rotate(360deg);
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
     }
-  }
-  
-  /* Título principal */
-  header {
+}
+
+/* Título principal */
+header {
     text-align: center;
     padding: 20px;
     background-color: #111;
     color: white;
-  }
-  
-  header h1 {
+}
+
+header h1 {
     font-size: 2rem;
-  }
-  
-  header h1 span {
+}
+
+header h1 span {
     color: #d62828;
-  }
-  
-  /* Contenedor principal */
-  main {
+}
+
+/* Contenedor principal */
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-  }
-  
-  /* Contenedor de listas */
-  .lists-container, .books-container {
+}
+
+/* Contenedor de listas */
+.lists-container,
+.books-container {
     width: 100%;
     max-width: 1000px;
     margin: 20px auto;
     display: grid;
     gap: 20px;
-  }
-  
-  .lists-container {
+}
+
+.lists-container {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
-  
-  .books-container {
+}
+
+.books-container {
     display: none;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-  
-  /* Estilo para cada item de la lista */
-  .list-item, .book-item {
+}
+
+/* Estilo para cada item de la lista */
+.list-item,
+.book-item {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -92,24 +89,25 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     text-align: center;
-  }
-  
-  .list-item:hover, .book-item:hover {
+}
+
+.list-item:hover,
+.book-item:hover {
     transform: translateY(-5px);
-  }
-  
-  .list-item h2 {
+}
+
+.list-item h2 {
     font-size: 1.2rem;
     margin-bottom: 10px;
     color: #111;
-  }
-  
-  .list-item p {
+}
+
+.list-item p {
     font-size: 0.9rem;
     color: #666;
-  }
-  
-  .list-item button {
+}
+
+.list-item button {
     background-color: #d62828;
     color: white;
     padding: 8px 12px;
@@ -117,36 +115,36 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .list-item button:hover {
+}
+
+.list-item button:hover {
     background-color: #a71c1c;
-  }
-  
-  /* Estilo para los libros */
-  .book-item {
+}
+
+/* Estilo para los libros */
+.book-item {
     text-align: left;
-  }
-  
-  .book-item h3 {
+}
+
+.book-item h3 {
     font-size: 1rem;
     color: #333;
-  }
-  
-  .book-item img {
+}
+
+.book-item img {
     width: 100%;
     max-width: 120px;
     height: auto;
     margin: 10px 0;
     border-radius: 5px;
-  }
-  
-  .book-item p {
+}
+
+.book-item p {
     font-size: 0.85rem;
     color: #444;
-  }
-  
-  .book-item a {
+}
+
+.book-item a {
     display: inline-block;
     background-color: #111;
     color: #fff;
@@ -154,14 +152,14 @@
     border-radius: 5px;
     text-decoration: none;
     font-size: 0.85rem;
-  }
-  
-  .book-item a:hover {
+}
+
+.book-item a:hover {
     background-color: #444;
-  }
-  
-  /* Botón de regreso */
-  .books-container button {
+}
+
+/* Botón de regreso */
+.books-container button {
     background-color: #d62828;
     color: white;
     padding: 8px 12px;
@@ -170,23 +168,8 @@
     cursor: pointer;
     margin-bottom: 10px;
     width: 100%;
-  }
-  
-  .books-container button:hover {
+}
+
+.books-container button:hover {
     background-color: #a71c1c;
-  }
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-
-}
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { 
-
 }
