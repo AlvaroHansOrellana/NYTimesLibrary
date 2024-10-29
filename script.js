@@ -85,10 +85,41 @@ const showBookList = (books) => {
       <p>Semanas en lista: ${book.weeks_on_list}</p>
       <p>${book.description}</p>
       <a href="${book.amazon_product_url}" target="_blank">Compra en Amazon</a>
+      <button class="favorite-btn" data-isbn="${book.primary_isbn13}">Agregar a favoritos</button>
     `;
     booksContainer.appendChild(bookDiv);
   });
+
+  // Add event listeners for favorite buttons
+  const favoriteButtons = document.querySelectorAll('.favorite-btn');
+  favoriteButtons.forEach(button => {
+    button.addEventListener('click', addToFavorites);
+  });
 };
 
-// Cargar las listas de libros al cargar la página
-document.addEventListener('DOMContentLoaded', getBookLists);
+// Function to add a book to favorites
+const addToFavorites = async (event) => {
+  const user = auth.currentUser;
+  if (!user) {
+    alert('Debes iniciar sesión para agregar libros a favoritos.');
+    return;
+  }
+
+  const isbn = event.target.getAttribute('data-isbn');
+  const bookTitle = event.target.parentElement.querySelector('h3').textContent.split(' - ')[1];
+
+  try {
+    await db.collection('favorites').doc(user.uid).set({
+      [isbn]: bookTitle
+    }, { merge: true });
+    alert(`"${bookTitle}" ha sido agregado a tus favoritos.`);
+  } catch (error) {
+    console.error('Error adding to favorites:', error);
+    alert('Error al agregar el libro a favoritos. Intenta nuevamente.');
+  }
+};
+
+// Function to initialize the app
+function initApp() {
+  getBookLists();
+}

@@ -16,8 +16,19 @@
     <h1>NY Times <span>Best Sellers</span></h1>
   </header>
 
+  <!-- Formulario de autenticación -->
+  <div id="auth-container" class="auth-container">
+    <form id="auth-form" class="auth-form">
+      <h2>Iniciar sesión / Registrarse</h2>
+      <input type="email" id="email" placeholder="Correo electrónico" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="button" id="login-btn">Iniciar sesión</button>
+      <button type="button" id="register-btn">Registrarse</button>
+    </form>
+  </div>
+
   <!-- Contenedor principal -->
-  <main>
+  <main id="main-content">
     <!-- Contenedor de listas de libros -->
     <section id="lists-container" class="lists-container">
       <h2>Explora las Listas de Libros</h2>
@@ -29,6 +40,11 @@
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+  <script src="/firebase.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
