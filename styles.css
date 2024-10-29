@@ -11,15 +11,34 @@
     color: #333;
   }
   
-  /* Spinner de carga */
-  .loading-spinner {
+  /* Oculta el spinner por defecto */
+#loading {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 1.5rem;
-    color: #333;
+    z-index: 10;
+  }
+  
+  /* Estilo del spinner */
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #333; /* Color del borde superior */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Animación de giro */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
   
   /* Título principal */
