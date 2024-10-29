@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+}
+
+.book-lists {
+    width: 90%;
+    max-width: 800px;
+    margin: 1rem auto;
+}
+
+.loader {
+    display: none;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1em;
+}
+
+.loader.active {
+    display: block;
+}
+
+.list-item {
+    border-bottom: 1px solid #ccc;
+    padding: 1em 0;
+    margin: 0.5rem 0;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease; 
+}
+
+.list-item:hover { /* Agrandamiento del mouse sobre las tarjetas */
+    transform: scale(1.02);
+}
+
+.list-item h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    color:#333;
+}
+
+.list-item p {
+    margin: 0.3em 0;
+    color: #666;
+}
+
+.list-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.list-item a:hover {
+    text-decoration: underline;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+}
