@@ -1,5 +1,3 @@
-# Books Dashboard
-
 ## Descripción
 Aplicación web que muestra una lista de libros obtenidos de la NY Times Books API. El usuario puede ver detalles sobre las listas de libros, incluyendo información sobre el libro más antiguo, el último libro añadido, y la frecuencia de actualización. Además, permite ver la lista de libros de forma interactiva.
 
