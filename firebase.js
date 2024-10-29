@@ -6,7 +6,6 @@ const firebaseConfig = {
     storageBucket: "demoweb-46446.appspot.com",
     messagingSenderId: "460314176652",
     appId: "1:460314176652:web:691c74421911536a0f9fa9"
-    // Your Firebase configuration object here
 };
 
 // Initialize Firebase
@@ -19,6 +18,7 @@ const authForm = document.getElementById('auth-form');
 const loginBtn = document.getElementById('login-btn');
 const registerBtn = document.getElementById('register-btn');
 const mainContent = document.getElementById('main-content');
+const logoutBtn = document.getElementById('logout-btn'); // Add a reference to the logout button
 
 // Show auth form
 function showAuthForm() {
@@ -40,10 +40,9 @@ loginBtn.addEventListener('click', (e) => {
 
     auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            // Logged in successfully
             const user = userCredential.user;
             console.log('Logged in:', user);
-            hideAuthForm();
+            hideAuthForm(); // Hide the form after successful login
             if (typeof initApp === 'function') {
                 initApp();
             }
@@ -55,16 +54,16 @@ loginBtn.addEventListener('click', (e) => {
 });
 
 // Handle registration
-registerBtn.addEventListener('click', () => {
+registerBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent default form submission
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
     auth.createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            // Registered successfully
             const user = userCredential.user;
             console.log('Registered:', user);
-            hideAuthForm();
+            hideAuthForm(); // Hide the form after successful registration
             if (typeof initApp === 'function') {
                 initApp();
             }
@@ -75,32 +74,49 @@ registerBtn.addEventListener('click', () => {
         });
 });
 
+// Handle logout
+function logout() {
+    auth.signOut().then(() => {
+        console.log('User logged out');
+        showAuthForm(); // Show the auth form again
+    }).catch((error) => {
+        console.error('Logout error:', error);
+        alert('Error al cerrar sesión: ' + error.message);
+    });
+}
+
 // Check auth state
 auth.onAuthStateChanged((user) => {
     if (user) {
         // User is signed in
         console.log('User is signed in:', user);
-        hideAuthForm();
+        hideAuthForm(); // Hide the form if the user is signed in
         if (typeof initApp === 'function') {
             initApp();
         }
     } else {
         // User is signed out
         console.log('User is signed out');
-        showAuthForm();
+        showAuthForm(); // Show the form if the user is signed out
     }
 });
 
-// Inicializar la autenticación
+// Initialize authentication
 document.addEventListener('DOMContentLoaded', () => {
     // Check initial auth state
     const user = auth.currentUser;
     if (user) {
-        hideAuthForm();
+        hideAuthForm(); // Hide the form if the user is already signed in
         if (typeof initApp === 'function') {
             initApp();
         }
     } else {
-        showAuthForm();
+        showAuthForm(); // Show the form if no user is signed in
     }
+});
+
+// Logout button event listener
+logoutBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    logout(); // Call the logout function
 });

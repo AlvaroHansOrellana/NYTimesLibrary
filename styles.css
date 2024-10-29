@@ -13,7 +13,7 @@ body {
 
 /* Estilos para el formulario de autenticación */
 .auth-container {
-    display: flex; 
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
@@ -25,13 +25,16 @@ body {
     align-items: center;
 }
 
+.auth-container.visible {
+    display: flex; /* Show when visible */
+}
+
 .auth-form {
     display: flex;
     background-color: white;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
     flex-direction: column;
     gap: 1rem;
     max-width: 300px;
@@ -66,6 +69,24 @@ body {
     background-color: #a71c1c;
 }
 
+/* Styles for logout button */
+#logout-btn {
+    padding: 0.5rem 1rem; /* Adjust padding for smaller size */
+    display: flex;
+    background-color: #d62828; /* Same background as other buttons */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    margin: 10px auto; /* Center the button and add spacing */
+    display: inline-block; /* Allow it to size based on content */
+}
+
+#logout-btn:hover {
+    background-color: #a71c1c; /* Same hover effect as other buttons */
+}
 
 /* Spinner de carga */
 .loading {
@@ -248,13 +269,24 @@ main {
 
 /* New styles for visibility control */
 #main-content {
-    display: none;
+    display: none; /* Start hidden */
 }
 
 #main-content.visible {
-    display: block;
+    display: block; /* Show when visible */
 }
 
-.auth-container.visible {
-    display: flex;
-}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+ }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+ }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+ }
