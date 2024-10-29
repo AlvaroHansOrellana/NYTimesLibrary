@@ -1,70 +1,143 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
+/* Reset básico */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  /* Spinner de carga */
+  .loading-spinner {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  /* Contenedor principal */
+  main {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
+    padding: 20px;
+  }
+  
+  /* Contenedor de listas */
+  .lists-container, .books-container {
     width: 100%;
-    text-align: center;
-    padding: 1rem;
-}
-
-.book-lists {
-    width: 90%;
     max-width: 800px;
-    margin: 1rem auto;
-}
-
-.loader {
-    display: none;
-    font-size: 1.2rem;
+    margin: 10px auto;
+  }
+  
+  .lists-container h1 {
     text-align: center;
-    padding: 1em;
-}
-
-.loader.active {
-    display: block;
-}
-
-.list-item {
-    border-bottom: 1px solid #ccc;
-    padding: 1em 0;
-    margin: 0.5rem 0;
-    background-color: #f9f9f9;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #222;
+  }
+  
+  /* Estilo para cada item de la lista */
+  .list-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease; 
-}
-
-.list-item:hover { /* Agrandamiento del mouse sobre las tarjetas */
-    transform: scale(1.02);
-}
-
-.list-item h2 {
-    margin: 0;
-    font-size: 1.1rem;
-    color:#333;
-}
-
-.list-item p {
-    margin: 0.3em 0;
-    color: #666;
-}
-
-.list-item a {
-    color: #007bff;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .list-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .list-item h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .list-item p {
+    margin: 5px 0;
+  }
+  
+  .list-item button {
+    background-color: #0073e6;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .list-item button:hover {
+    background-color: #005bb5;
+  }
+  
+  /* Contenedor de libros individuales */
+  .books-container {
+    display: none;
+  }
+  
+  .book-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .book-item h3 {
+    font-size: 1.4rem;
+    color: #333;
+  }
+  
+  .book-item img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .book-item p {
+    margin: 10px 0;
+  }
+  
+  .book-item a {
+    color: #0073e6;
     text-decoration: none;
-}
-
-.list-item a:hover {
-    text-decoration: underline;
-}
+    font-weight: bold;
+  }
+  
+  .book-item a:hover {
+    color: #005bb5;
+  }
+  
+  /* Botón de regreso */
+  .books-container button {
+    background-color: #555;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .books-container button:hover {
+    background-color: #333;
+  }
+  
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
