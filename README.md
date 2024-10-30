@@ -10,4 +10,5 @@ Aplicación web que muestra una lista de libros obtenidos de la NY Times Books A
 - `index.html`: Archivo principal que contiene la estructura HTML de la aplicación.
 - `style.css`: Archivo CSS que define el estilo de la aplicación.
 - `script.js`: Archivo JavaScript que maneja la lógica de la aplicación, incluyendo la manipulación del DOM y la comunicación con la API.
+- `firebase.js`: Archivo JavaScript que gestiona el almacenamiento de los usuarios y sus libros favoritos detro de la aplicación.
 
