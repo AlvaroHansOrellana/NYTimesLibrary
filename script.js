@@ -30,6 +30,37 @@ const displayBookLists = (lists) => {
   listsContainer.innerHTML = ''; // Limpia el contenedor de listas
   listsContainer.style.display = 'block';
 
+  // Agregar el campo de búsqueda
+  const searchDiv = document.createElement('div');
+  searchDiv.className = 'search-container';
+  searchDiv.innerHTML = `
+    <input type="text" id="category-search" placeholder="Buscar categoría...">
+    <button id="search-btn">Buscar</button>
+  `;
+  listsContainer.appendChild(searchDiv);
+
+  // Crear un contenedor para las categorías
+  const categoriesContainer = document.createElement('div');
+  categoriesContainer.id = 'categories-container';
+  listsContainer.appendChild(categoriesContainer);
+
+  // Mostrar todas las categorías
+  displayCategories(lists);
+
+  // Agregar evento de búsqueda
+  document.getElementById('search-btn').addEventListener('click', () => searchCategories(lists));
+  document.getElementById('category-search').addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+      searchCategories(lists);
+    }
+  });
+};
+
+// Función para mostrar categorías
+const displayCategories = (lists) => {
+  const categoriesContainer = document.getElementById('categories-container');
+  categoriesContainer.innerHTML = ''; // Limpiar categorías existentes
+
   lists.forEach((list) => {
     const listDiv = document.createElement('div');
     listDiv.className = 'list-item';
@@ -40,8 +71,17 @@ const displayBookLists = (lists) => {
       <p>Actualización: ${list.updated}</p>
       <button data-list="${list.list_name_encoded}" class="load-list-btn">Ver Lista</button>
     `;
-    listsContainer.appendChild(listDiv);
+    categoriesContainer.appendChild(listDiv);
   });
+};
+
+// Función para buscar categorías
+const searchCategories = (lists) => {
+  const searchTerm = document.getElementById('category-search').value.toLowerCase();
+  const filteredLists = lists.filter(list => 
+    list.display_name.toLowerCase().includes(searchTerm)
+  );
+  displayCategories(filteredLists);
 };
 
 // Escuchar los clics para cargar una lista específica
@@ -74,7 +114,7 @@ const showBookList = (books) => {
   const booksContainer = document.getElementById('books-container');
   listsContainer.style.display = 'none';
   booksContainer.style.display = 'block';
-  booksContainer.innerHTML = `<button onclick="getBookLists()">Atrás</button>`;
+  booksContainer.innerHTML = `<button onclick="returnToLists()">Atrás</button>`;
 
   books.forEach((book, index) => {
     const bookDiv = document.createElement('div');
@@ -96,6 +136,14 @@ const showBookList = (books) => {
     button.addEventListener('click', addToFavorites);
   });
 };
+
+// Function to return to lists view
+function returnToLists() {
+  const listsContainer = document.getElementById('lists-container');
+  const booksContainer = document.getElementById('books-container');
+  booksContainer.style.display = 'none';
+  listsContainer.style.display = 'block';
+}
 
 // Function to add a book to favorites
 const addToFavorites = async (event) => {
