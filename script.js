@@ -8,6 +8,11 @@ function toggleSpinner(visible) {
   spinner.style.display = visible ? 'block' : 'none';
 }
 
+// JavaScript: Toggle Dark/Light Mode
+document.getElementById('theme-toggle').addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+
 // Llamada para obtener las listas de libros
 const getBookLists = async () => {
   toggleSpinner(true);
